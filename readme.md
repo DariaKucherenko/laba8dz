@@ -7,24 +7,28 @@
  1) Начало
  2) Объявление переменных:<br>
   * int n;
-  * double x, sum = 0.0;
+  *  double x, sum = 0.0;
+   * double power;
 
 3) Ввод данных<br>
-printf("Введите натуральное n: ");<br>
+printf("Введите натуральное n (количество степеней): ");<br>
 scanf("%d", &n);<br>
-printf("Введите действительное x: ");<br>
+printf("Введите действительное x (основание степени): ");<br>
 scanf("%lf", &x);<br>
 
-4) Организация цикла for для вычисления суммы<br>
-for (int i = 1; i <= n; i++)<br>
-sum += cos(pow(x, i));<br>
+4) Присваение значения и организация цикла for для вычисления суммы<br>
+power = x; <br>
+for (int i = 1; i <= n; i++) {<br>
+sum += cos(power); <br>
+power *= x;     <br>
+}<br>
 
 5) Вывод результата решения<br>
 printf("Сумма равна: %lf\n", sum);
 
 6) Конец<br>
 ### Блок-схема
-<img src="2.png" />
+<img src="лаба8.png" />
 
 ### Реализация программы
 ```
@@ -39,14 +43,18 @@ int main() {
     setlocale(LC_ALL, ".UTF8");
     int n;
     double x, sum = 0.0;
+    double power;
 
-    printf("Введите натуральное n (количество стеменей): ");
+    printf("Введите натуральное n (количество степеней): ");
     scanf("%d", &n);
     printf("Введите действительное x (основание степени): ");
     scanf("%lf", &x);
 
+    power = x; 
+
     for (int i = 1; i <= n; i++) {
-        sum += cos(pow(x, i));
+        sum += cos(power); 
+        power *= x;      
     }
 
     printf("Сумма равна: %lf\n", sum);
